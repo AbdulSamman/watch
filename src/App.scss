@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #333;
+  color: #aaa;
+  font-family: sans-serif;
+  h1 {
+    color: gold;
+  }
+
+  .WatchHand {
+    background: linear-gradient(to right, blue 50%, red 50%);
+    .watch {
+      background: linear-gradient(to right, green 50%, yellow 50%);
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      border-radius: 100%;
+      position: relative;
+      left: calc(50% - 101px);
+      top: calc(50% - 100px);
+
+      @mixin watchDesign($name, $bgColor, $width, $height) {
+        .#{$name} {
+          border-radius: 50%;
+          background-color: $bgColor;
+          width: $width;
+          height: $height;
+          position: absolute;
+        }
+      }
+
+      $zeiger: hours red 5px 70px, minutes cyan 4px 90px,
+        seconds black 2px 110px;
+
+      @each $name, $bgColor, $width, $height in $zeiger {
+        @include watchDesign($name, $bgColor, $width, $height);
+      }
+
+      .hours {
+        left: calc(50% - 2.5px);
+        top: calc(50% - 60px);
+        transform-origin: center 60px;
+      }
+
+      .minutes {
+        left: calc(50% - 2px);
+        top: calc(50% - 75px);
+        transform-origin: center 75px;
+      }
+      .seconds {
+        left: calc(50% - 1px);
+        top: calc(50% - 80px);
+        transform-origin: center 80px;
+        z-index: 2;
+      }
+
+      .kreis {
+        width: 10px;
+        height: 10px;
+        background: linear-gradient(to right, blue 50%, white 50%);
+        border-radius: 100%;
+        position: absolute;
+        left: calc(50% - 5px);
+        top: calc(50% - 5px);
+        z-index: 3;
+      }
+      .days {
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+        position: absolute;
+        right: 5%;
+        top: calc(50% - 7.5px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -2px -2px 5px -1px inset;
+        border-radius: 5px;
+      }
+    }
+  }
+}
