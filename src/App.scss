@@ -37,7 +37,7 @@ body {
         }
       }
 
-      $zeiger: hours red 5px 35% 1, minutes cyan 4px 45% 2,
+      $zeiger: hours red 5px 35% 1, minutes cyan 4px 42% 2,
         seconds black 2px 55% 3;
 
       @each $name, $bgColor, $width, $height, $zIndex in $zeiger {
@@ -51,8 +51,8 @@ body {
       }
 
       .minutes {
-        left: calc(50% - 2px);
-        top: 12%;
+        left: calc(50% - 3px);
+        top: 15%;
         transform-origin: center 85%;
       }
       .seconds {
@@ -72,17 +72,17 @@ body {
         z-index: 4;
       }
       .days {
-        width: 20px;
-        height: 20px;
-        font-size: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 35px;
         position: absolute;
         right: 10%;
-        top: calc(50% - 10px);
+        top: calc(50% - 17px);
         display: flex;
         justify-content: center;
         align-items: center;
         box-shadow: -2px -2px 5px -1px inset;
-        border-radius: 5px;
+        border-radius: 10px;
         z-index: 1;
       }
       .secondsMark {
