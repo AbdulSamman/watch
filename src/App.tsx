@@ -1,12 +1,11 @@
 import "./App.scss";
 
-import { WatchHand } from "./components/WatchHand";
+import { Watch } from "./components/Watch";
 
 function App() {
   return (
     <>
-      <h1>Watch</h1>
-      <WatchHand />
+      <Watch />
     </>
   );
 }

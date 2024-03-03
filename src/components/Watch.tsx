@@ -1,6 +1,7 @@
+import React from "react";
 import { useState, useEffect } from "react";
 
-export const WatchHand = () => {
+export const Watch = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -17,11 +18,13 @@ export const WatchHand = () => {
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
   const days = time.getDate();
-  console.log(seconds);
+
+  // sekunds markers
+  const secondsArray = Array.from({ length: 60 }, (_, index) => index);
 
   return (
-    <div className="WatchHand">
-      <div className="watch">
+    <div className="watch">
+      <div className="watchHand">
         <div
           className="hours"
           style={{
@@ -37,8 +40,19 @@ export const WatchHand = () => {
           style={{
             transform: `rotate(${seconds * 6}deg)`,
           }}></div>
+
         <div className="days">{days}</div>
         <div className="kreis"></div>
+        <div className="secondsMark">
+          {secondsArray.map((_, index) => (
+            <div
+              key={index}
+              className={`secondMark secondMark-${index}`}
+              style={{
+                transform: `rotate(${index * 6}deg)`,
+              }}></div>
+          ))}
+        </div>
       </div>
     </div>
   );
