@@ -268,11 +268,11 @@ body {
       }
       .marke {
         color: rgba($borderColor, 0.3);
-        -webkit-text-stroke: 1px black;
+        //-webkit-text-stroke: 1px black;
 
         span {
           color: rgba(#333, 0.2);
-          -webkit-text-stroke: 1px rgba($borderColor, 0.3);
+          //-webkit-text-stroke: 1px rgba($borderColor, 0.3);
         }
         font-size: 1rem;
         position: absolute;
