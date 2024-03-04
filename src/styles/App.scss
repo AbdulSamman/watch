@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   .watchPage {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
     border-radius: 15%;
     width: 85vw;
     height: 90vw;
@@ -47,7 +47,7 @@ body {
         width: 5%;
         height: 10%;
         transition: right 0.3s ease;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.9);
         border-radius: 5px;
         cursor: pointer;
         border: none;
@@ -147,9 +147,9 @@ body {
           align-items: center;
           border-radius: 100%;
           z-index: 1;
-          animation: boxShadow 2s infinite linear;
-          border: 2px solid $borderColor;
-          color: #777;
+          animation: boxShadow 10s infinite linear;
+          border: 1px solid darken($borderColor, 50%);
+          color: #333;
         }
 
         .secondsMark {
@@ -180,6 +180,47 @@ body {
           }
           .taktLighten {
             border-color: lighten(gold, 40%);
+          }
+          .dials {
+            position: absolute;
+            width: 26%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 37%;
+            border: 1px solid darken($borderColor, 58px);
+          }
+
+          .secondsShow {
+            right: 12%;
+          }
+          .minutsShow {
+            left: 12%;
+            .minutsSmall {
+              border-left: 1px solid darken($borderColor, 48px);
+              height: 8%;
+              position: absolute;
+              left: 50%;
+              top: 3px;
+              transform-origin: 50% 600%;
+            }
+            .minutsNumber {
+              font-size: 14px;
+              height: 50%;
+              position: absolute;
+              left: calc(50% - 7px);
+              top: 0px;
+              transform-origin: 50% 100%;
+              color: darken($borderColor, 40%);
+            }
+            .minutsNumber:first-child::after {
+              content: "0";
+              color: red;
+            }
+          }
+          .stopWatch {
+            left: 34%;
+            top: 57%;
+            width: 32%;
           }
         }
       }

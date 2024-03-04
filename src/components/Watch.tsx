@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 
 export const Watch = () => {
@@ -50,14 +51,31 @@ export const Watch = () => {
           <div className="kreis"></div>
           <div className="secondsMark">
             {secondsArray.map((_, index) => (
-              <div
-                key={index}
-                className={`secondMark secondMark-${index} ${
-                  index === seconds && "taktLighten"
-                }`}
-                style={{
-                  transform: `rotate(${index * 6}deg)`,
-                }}></div>
+              <React.Fragment key={index}>
+                <div
+                  className={`secondMark secondMark-${index} ${
+                    index === seconds && "taktLighten"
+                  }`}
+                  style={{
+                    transform: `rotate(${index * 6}deg)`,
+                  }}></div>
+                <div className="dials  secondsShow"></div>
+                <div className="dials minutsShow">
+                  <div
+                    style={{
+                      transform: `rotate(${index * 60 + 30}deg)`,
+                    }}
+                    className="minutsSmall"></div>
+                  <span
+                    className="minutsNumber"
+                    style={{
+                      transform: `rotate(${index * -30}deg)`,
+                    }}>
+                    {index % 10 === 0 && <>{index === 0 ? "60" : index}</>}
+                  </span>
+                </div>
+                <div className="dials stopWatch"></div>
+              </React.Fragment>
             ))}
           </div>
         </div>
