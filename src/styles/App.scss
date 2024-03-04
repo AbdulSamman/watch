@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+
   .watchPage {
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 15%;
@@ -22,6 +23,7 @@ body {
     align-items: center;
     max-width: 460px;
     max-height: 460px;
+
     .watchGround {
       background: repeating-linear-gradient(
           45deg,
@@ -41,6 +43,7 @@ body {
       max-height: 500px;
       position: absolute;
       border-radius: 50%;
+
       .tasten {
         position: absolute;
         width: 5%;
@@ -62,8 +65,15 @@ body {
         right: -2%;
         top: 40%;
         height: 20%;
-        z-index: -1;
         border-radius: 40%;
+        right: -11px;
+
+        cursor: pointer;
+        position: absolute;
+
+        &:active {
+          right: -9px;
+        }
       }
       .squareBottom {
         top: 78%;
@@ -103,14 +113,16 @@ body {
 
         $zeiger: hours black 10px 30% 2, minutes black 7px 42% 2,
           seconds $borderColor 2px 55% 3,
-          secondsHandSmall $borderColor 1px 35% 0;
+          secondsHandSmall $borderColor 1px 35% 0,
+          minutsHandSmall $borderColor 1px 35% 0,
+          stopWatchHand $borderColor 1px 40% 0;
 
         @each $name, $bgColor, $width, $height, $zIndex in $zeiger {
           @include watchDesign($name, $bgColor, $width, $height, $zIndex);
         }
 
         .hours {
-          left: calc(50% - 5.5px);
+          left: calc(50% - 3px);
           top: 25%;
           transform-origin: center 80%;
         }
@@ -122,8 +134,8 @@ body {
         }
         .seconds {
           left: calc(50% - 1px);
-          top: 9.5%;
-          transform-origin: center 73%;
+          top: 9%;
+          transform-origin: center 75%;
           border-top: none;
         }
 
@@ -131,11 +143,11 @@ body {
         .kreisSmall {
           width: 8px;
           height: 8px;
-          background-color: rgb(236, 208, 97);
+          background-color: rgb(242, 242, 55);
           border-radius: 100%;
           position: absolute;
           left: calc(50% - 4px);
-          top: calc(50% - 5px);
+          top: calc(50% - 4px);
           z-index: 4;
         }
         .days {
@@ -156,7 +168,6 @@ body {
         }
 
         .secondsMark {
-          background-color: red;
           .secondMark {
             border-left: 0.7px solid gray;
             height: 3%;
@@ -191,7 +202,6 @@ body {
             border-radius: 50%;
             top: 37%;
             border: 1px solid darken($borderColor, 58px);
-            padding: 5px;
           }
 
           .numbersSmall {
@@ -210,8 +220,7 @@ body {
             top: 5%;
             transform-origin: 50% 90%;
             color: darken($borderColor, 40%);
-            font-size: 15px;
-            font-weight: bold;
+            font-size: 12px;
           }
           .secondsShow {
             right: 12%;
@@ -221,18 +230,17 @@ body {
               transform-origin: center 70%;
               background-color: darken($borderColor, 40%);
             }
-            .kreisSmall {
-              width: 4px;
-              height: 4px;
-              left: calc(50% - 2px);
-              top: calc(50% - 2px);
-            }
           }
           .minutsShow {
             left: 12%;
             .minutsNumbers {
-              font-size: 13px;
               left: 42%;
+            }
+            .minutsHandSmall {
+              left: 50%;
+              top: 25%;
+              transform-origin: center 70%;
+              background-color: darken($borderColor, 40%);
             }
           }
 
@@ -243,6 +251,19 @@ body {
             .stopNumbers {
               left: 42%;
             }
+            .stopWatchHand {
+              left: 50%;
+              top: 22.5%;
+              transform-origin: center 70%;
+              background-color: darken($borderColor, 40%);
+            }
+          }
+          .kreisSmall {
+            width: 4px;
+            height: 4px;
+            left: calc(50% - 2px);
+            top: calc(50% - 2px);
+            z-index: 1;
           }
         }
       }

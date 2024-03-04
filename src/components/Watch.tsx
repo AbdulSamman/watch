@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 export const Watch = () => {
   const [time, setTime] = useState(new Date());
   const [isSecondsStopped, setIsSecondsStopped] = useState(false);
+  const [isMinutesHandStoppen, setIsMinutesHandStoppen] = useState(false);
+  const [isStopActive, setIsStopActive] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,19 +25,20 @@ export const Watch = () => {
   // sekunds markers
   const secondsArray = Array.from({ length: 60 }, (_, index) => index);
 
-  // button functions
-  const handleSecondButton = () => {
-    setIsSecondsStopped(!isSecondsStopped);
-  };
-
   return (
     <div className="watchPage">
       <div className="watchGround">
         <button
           className="tasten squareTop"
-          onClick={handleSecondButton}></button>
-        <button className="tasten round"></button>
-        <button className="tasten squareBottom"></button>
+          onClick={() => setIsSecondsStopped(!isSecondsStopped)}></button>
+        <button
+          className="tasten round"
+          onClick={() => setIsStopActive(!isStopActive)}></button>
+        <button
+          className="tasten squareBottom"
+          onClick={() =>
+            setIsMinutesHandStoppen(!isMinutesHandStoppen)
+          }></button>
       </div>
       <div className="watch">
         <div className="watchHand">
@@ -102,6 +105,14 @@ export const Watch = () => {
                     }}>
                     {index % 10 === 0 && <>{index === 0 ? "60" : index}</>}
                   </span>
+                  <div
+                    className="minutsHandSmall"
+                    style={{
+                      transform: `rotate(${
+                        !isMinutesHandStoppen ? "" : minutes * 6
+                      }deg)`,
+                    }}></div>
+                  <div className="kreisSmall"></div>
                 </div>
                 <div className="dials stopWatch">
                   <div
@@ -109,13 +120,22 @@ export const Watch = () => {
                       transform: `rotate(${index * 3}deg)`,
                     }}
                     className="numbersSmall"></div>
-                  <span
+                  <div
                     className="numbers stopNumbers"
                     style={{
                       transform: `rotate(${index * 30}deg)`,
                     }}>
                     {index % 15 === 0 && <>{index}</>}
-                  </span>
+                  </div>
+                  <div
+                    className="stopWatchHand"
+                    style={{
+                      transform: `rotate(${
+                        !isStopActive ? 0 : (hours % 12) * 45 + minutes / 2
+                      }deg)`,
+                      transition: "800ms linear",
+                    }}></div>
+                  <div className="kreisSmall"></div>
                 </div>
               </React.Fragment>
             ))}
