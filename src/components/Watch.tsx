@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export const Watch = () => {
   const [time, setTime] = useState(new Date());
+  const [isSecondsStopped, setIsSecondsStopped] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,10 +23,17 @@ export const Watch = () => {
   // sekunds markers
   const secondsArray = Array.from({ length: 60 }, (_, index) => index);
 
+  // button functions
+  const handleSecondButton = () => {
+    setIsSecondsStopped(!isSecondsStopped);
+  };
+
   return (
     <div className="watchPage">
       <div className="watchGround">
-        <button className="tasten squareTop"></button>
+        <button
+          className="tasten squareTop"
+          onClick={handleSecondButton}></button>
         <button className="tasten round"></button>
         <button className="tasten squareBottom"></button>
       </div>
@@ -72,6 +80,14 @@ export const Watch = () => {
                     }}>
                     {index % 15 === 0 && <>{index === 0 ? "60" : index}</>}
                   </span>
+                  <div
+                    className="secondsHandSmall"
+                    style={{
+                      transform: `rotate(${
+                        !isSecondsStopped ? "" : seconds * 6
+                      }deg)`,
+                    }}></div>
+                  <div className="kreisSmall"></div>
                 </div>
                 <div className="dials minutsShow">
                   <div

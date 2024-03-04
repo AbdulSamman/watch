@@ -101,32 +101,34 @@ body {
           }
         }
 
-        $zeiger: hours black 10px 30% 1, minutes black 7px 42% 2,
-          seconds $borderColor 2px 55% 3;
+        $zeiger: hours black 10px 30% 2, minutes black 7px 42% 2,
+          seconds $borderColor 2px 55% 3,
+          secondsHandSmall $borderColor 1px 35% 0;
 
         @each $name, $bgColor, $width, $height, $zIndex in $zeiger {
           @include watchDesign($name, $bgColor, $width, $height, $zIndex);
         }
 
         .hours {
-          left: calc(50% - 2.5px);
+          left: calc(50% - 5.5px);
           top: 25%;
           transform-origin: center 80%;
         }
 
         .minutes {
-          left: calc(50% - 3px);
+          left: calc(50% - 3.5px);
           top: 16%;
           transform-origin: center 80%;
         }
         .seconds {
-          left: calc(50% - 1.5px);
+          left: calc(50% - 1px);
           top: 9.5%;
           transform-origin: center 73%;
           border-top: none;
         }
 
-        .kreis {
+        .kreis,
+        .kreisSmall {
           width: 8px;
           height: 8px;
           background-color: rgb(236, 208, 97);
@@ -213,6 +215,18 @@ body {
           }
           .secondsShow {
             right: 12%;
+            .secondsHandSmall {
+              left: 50%;
+              top: 25%;
+              transform-origin: center 70%;
+              background-color: darken($borderColor, 40%);
+            }
+            .kreisSmall {
+              width: 4px;
+              height: 4px;
+              left: calc(50% - 2px);
+              top: calc(50% - 2px);
+            }
           }
           .minutsShow {
             left: 12%;
