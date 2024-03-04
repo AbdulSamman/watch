@@ -1,4 +1,7 @@
 @use "variables" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +14,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: "Permanent Marker", cursive;
 
   .watchPage {
     background-color: rgba(0, 0, 0, 0.9);
@@ -53,32 +57,30 @@ body {
         border-radius: 5px;
         cursor: pointer;
         border: none;
-        right: 2%;
+        right: 2.5%;
       }
       .squareTop {
         top: 12%;
-        &:active {
-          right: 4%;
-        }
       }
       .round {
-        right: -2%;
         top: 40%;
         height: 20%;
         border-radius: 40%;
-        right: -11px;
-
+        right: -1%;
         cursor: pointer;
         position: absolute;
-
+        background: linear-gradient(to right, transparent 50%, black 50%);
         &:active {
-          right: -9px;
+          right: -1px;
         }
       }
       .squareBottom {
         top: 78%;
+      }
+      .squareBottom,
+      .squareTop {
         &:active {
-          right: 4%;
+          right: 3%;
         }
       }
     }
@@ -216,7 +218,7 @@ body {
           .numbers {
             height: 50%;
             position: absolute;
-            left: 40%;
+            left: 44%;
             top: 5%;
             transform-origin: 50% 90%;
             color: darken($borderColor, 40%);
@@ -227,20 +229,13 @@ body {
             .secondsHandSmall {
               left: 50%;
               top: 25%;
-              transform-origin: center 70%;
-              background-color: darken($borderColor, 40%);
             }
           }
           .minutsShow {
             left: 12%;
-            .minutsNumbers {
-              left: 42%;
-            }
             .minutsHandSmall {
               left: 50%;
               top: 25%;
-              transform-origin: center 70%;
-              background-color: darken($borderColor, 40%);
             }
           }
 
@@ -248,24 +243,41 @@ body {
             left: 34%;
             top: 58%;
             width: 32%;
-            .stopNumbers {
-              left: 42%;
-            }
+
             .stopWatchHand {
               left: 50%;
               top: 22.5%;
-              transform-origin: center 70%;
-              background-color: darken($borderColor, 40%);
             }
           }
+          .secondsHandSmall,
+          .minutsHandSmall,
+          .stopWatchHand {
+            transform-origin: center 70%;
+            background-color: darken($borderColor, 40%);
+            border: none;
+          }
           .kreisSmall {
-            width: 4px;
-            height: 4px;
-            left: calc(50% - 2px);
-            top: calc(50% - 2px);
+            width: 5px;
+            height: 5px;
+            left: calc(50% - 2.5px);
+            top: calc(50% - 2.5px);
             z-index: 1;
+            background-color: darken($borderColor, 40%);
           }
         }
+      }
+      .marke {
+        color: rgba($borderColor, 0.3);
+        -webkit-text-stroke: 1px black;
+
+        span {
+          color: rgba(#333, 0.2);
+          -webkit-text-stroke: 1px rgba($borderColor, 0.3);
+        }
+        font-size: 1rem;
+        position: absolute;
+        top: 28%;
+        left: calc(50% - 2rem);
       }
     }
   }

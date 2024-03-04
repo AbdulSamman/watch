@@ -87,9 +87,15 @@ export const Watch = () => {
                     className="secondsHandSmall"
                     style={{
                       transform: `rotate(${
-                        !isSecondsStopped ? "" : seconds * 6
+                        isSecondsStopped
+                          ? !isStopActive
+                            ? 0
+                            : seconds * 6
+                          : ""
                       }deg)`,
+                      transition: "1s linear",
                     }}></div>
+
                   <div className="kreisSmall"></div>
                 </div>
                 <div className="dials minutsShow">
@@ -99,7 +105,7 @@ export const Watch = () => {
                     }}
                     className="numbersSmall"></div>
                   <span
-                    className="numbers minutsNumbers"
+                    className="numbers"
                     style={{
                       transform: `rotate(${index * -30}deg)`,
                     }}>
@@ -109,8 +115,13 @@ export const Watch = () => {
                     className="minutsHandSmall"
                     style={{
                       transform: `rotate(${
-                        !isMinutesHandStoppen ? "" : minutes * 6
+                        isMinutesHandStoppen
+                          ? !isStopActive
+                            ? 0
+                            : minutes * 6
+                          : ""
                       }deg)`,
+                      transition: "1s linear",
                     }}></div>
                   <div className="kreisSmall"></div>
                 </div>
@@ -121,18 +132,16 @@ export const Watch = () => {
                     }}
                     className="numbersSmall"></div>
                   <div
-                    className="numbers stopNumbers"
+                    className="numbers"
                     style={{
                       transform: `rotate(${index * 30}deg)`,
                     }}>
-                    {index % 15 === 0 && <>{index}</>}
+                    {index % 15 === 0 && <>{index === 0 ? "60" : index}</>}
                   </div>
                   <div
                     className="stopWatchHand"
                     style={{
-                      transform: `rotate(${
-                        !isStopActive ? 0 : (hours % 12) * 45 + minutes / 2
-                      }deg)`,
+                      transform: `rotate(${!isStopActive ? 0 : 360}deg)`,
                       transition: "800ms linear",
                     }}></div>
                   <div className="kreisSmall"></div>
@@ -141,6 +150,9 @@ export const Watch = () => {
             ))}
           </div>
         </div>
+        <span className="marke">
+          SAM<span>MAN</span>
+        </span>
       </div>
     </div>
   );
