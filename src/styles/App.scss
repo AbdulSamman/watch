@@ -188,39 +188,45 @@ body {
             border-radius: 50%;
             top: 37%;
             border: 1px solid darken($borderColor, 58px);
+            padding: 5px;
           }
 
+          .numbersSmall {
+            border-left: 1px solid darken($borderColor, 48px);
+            position: absolute;
+            left: 50%;
+            top: 3px;
+            height: 10%;
+            transform-origin: 50% 470%;
+          }
+
+          .numbers {
+            height: 50%;
+            position: absolute;
+            left: 40%;
+            top: 5%;
+            transform-origin: 50% 90%;
+            color: darken($borderColor, 40%);
+            font-size: 15px;
+            font-weight: bold;
+          }
           .secondsShow {
             right: 12%;
           }
           .minutsShow {
             left: 12%;
-            .minutsSmall {
-              border-left: 1px solid darken($borderColor, 48px);
-              height: 8%;
-              position: absolute;
-              left: 50%;
-              top: 3px;
-              transform-origin: 50% 600%;
-            }
-            .minutsNumber {
-              font-size: 14px;
-              height: 50%;
-              position: absolute;
-              left: calc(50% - 7px);
-              top: 0px;
-              transform-origin: 50% 100%;
-              color: darken($borderColor, 40%);
-            }
-            .minutsNumber:first-child::after {
-              content: "0";
-              color: red;
+            .minutsNumbers {
+              font-size: 12px;
             }
           }
+
           .stopWatch {
             left: 34%;
-            top: 57%;
+            top: 58%;
             width: 32%;
+            .stopNumbers {
+              left: 42%;
+            }
           }
         }
       }

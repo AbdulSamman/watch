@@ -59,22 +59,48 @@ export const Watch = () => {
                   style={{
                     transform: `rotate(${index * 6}deg)`,
                   }}></div>
-                <div className="dials  secondsShow"></div>
+                <div className="dials  secondsShow">
+                  <div
+                    style={{
+                      transform: `rotate(${index * 6}deg)`,
+                    }}
+                    className="numbersSmall"></div>
+                  <span
+                    className="numbers"
+                    style={{
+                      transform: `rotate(${index * 30}deg)`,
+                    }}>
+                    {index % 15 === 0 && <>{index === 0 ? "60" : index}</>}
+                  </span>
+                </div>
                 <div className="dials minutsShow">
                   <div
                     style={{
                       transform: `rotate(${index * 60 + 30}deg)`,
                     }}
-                    className="minutsSmall"></div>
+                    className="numbersSmall"></div>
                   <span
-                    className="minutsNumber"
+                    className="numbers minutsNumbers"
                     style={{
                       transform: `rotate(${index * -30}deg)`,
                     }}>
                     {index % 10 === 0 && <>{index === 0 ? "60" : index}</>}
                   </span>
                 </div>
-                <div className="dials stopWatch"></div>
+                <div className="dials stopWatch">
+                  <div
+                    style={{
+                      transform: `rotate(${index * 3}deg)`,
+                    }}
+                    className="numbersSmall"></div>
+                  <span
+                    className="numbers stopNumbers"
+                    style={{
+                      transform: `rotate(${index * 30}deg)`,
+                    }}>
+                    {index % 15 === 0 && <>{index}</>}
+                  </span>
+                </div>
               </React.Fragment>
             ))}
           </div>
