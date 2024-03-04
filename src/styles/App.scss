@@ -21,6 +21,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 460px;
+    max-height: 460px;
     .watchGround {
       background: repeating-linear-gradient(
           45deg,
@@ -36,8 +38,40 @@ body {
         );
       width: 95vw;
       height: 95vw;
+      max-width: 500px;
+      max-height: 500px;
       position: absolute;
       border-radius: 50%;
+      .tasten {
+        position: absolute;
+        width: 5%;
+        height: 10%;
+        transition: right 0.3s ease;
+        background-color: black;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        right: 2%;
+      }
+      .squareTop {
+        top: 12%;
+        &:active {
+          right: 4%;
+        }
+      }
+      .round {
+        right: -2%;
+        top: 40%;
+        height: 20%;
+        z-index: -1;
+        border-radius: 40%;
+      }
+      .squareBottom {
+        top: 78%;
+        &:active {
+          right: 4%;
+        }
+      }
     }
     .watch {
       width: 80vw;

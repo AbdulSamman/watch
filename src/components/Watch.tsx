@@ -24,9 +24,9 @@ export const Watch = () => {
   return (
     <div className="watchPage">
       <div className="watchGround">
-        <div className="tasten"></div>
-        <div className="tasten"></div>
-        <div className="tasten"></div>
+        <button className="tasten squareTop"></button>
+        <button className="tasten round"></button>
+        <button className="tasten squareBottom"></button>
       </div>
       <div className="watch">
         <div className="watchHand">
