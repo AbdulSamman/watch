@@ -46,7 +46,9 @@ export const Watch = () => {
           {secondsArray.map((_, index) => (
             <div
               key={index}
-              className={`secondMark secondMark-${index}`}
+              className={`secondMark secondMark-${index} ${
+                index === seconds && "taktLighten"
+              }`}
               style={{
                 transform: `rotate(${index * 6}deg)`,
               }}></div>
