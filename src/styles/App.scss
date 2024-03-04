@@ -267,12 +267,16 @@ body {
         }
       }
       .marke {
-        color: rgba($borderColor, 0.3);
+        color: rgba($borderColor, 0.4);
         //-webkit-text-stroke: 1px black;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 
         span {
-          color: rgba(#333, 0.2);
-          //-webkit-text-stroke: 1px rgba($borderColor, 0.3);
+          color: rgba(black, 0.9);
+
+          text-shadow: -1px 0 rgba($borderColor, 0.4),
+            0 1px rgba($borderColor, 0.4), 1px 0 rgba($borderColor, 0.4),
+            0 -1px rgba($borderColor, 0.4);
         }
         font-size: 1rem;
         position: absolute;
