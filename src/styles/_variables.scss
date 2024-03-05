@@ -16,3 +16,9 @@ $watchColor: rgb(2, 2, 2);
     box-shadow: $borderColor -1px 1px 1px 0px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+  }
+}
