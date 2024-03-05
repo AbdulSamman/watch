@@ -54,12 +54,12 @@ body {
         width: 5%;
         height: 10%;
         transition: right 0.3s ease;
-
         border-radius: 5px;
         cursor: pointer;
         border: none;
         outline: none;
         right: 2.5%;
+        background-color: $watchColor;
       }
       .squareTop {
         top: 12%;
@@ -81,7 +81,6 @@ body {
       }
       .squareBottom,
       .squareTop {
-        background-color: $watchColor;
         &:active {
           right: 3%;
           outline: none;
@@ -291,6 +290,6 @@ body {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: white;
+    background-color: #333;
   }
 }
