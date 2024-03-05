@@ -17,7 +17,7 @@ body {
   font-family: "Permanent Marker", cursive;
   padding: 0 1rem;
   .watchPage {
-    background-color: rgba($watchColor, 0.9);
+    background-color: $watchColor;
     border-radius: 15%;
     width: 85vw;
     height: 90vw;
