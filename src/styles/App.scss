@@ -19,7 +19,7 @@ body {
   .watchPage {
     width: 100vw;
     height: 100vw;
-    background-color: rgba(88, 61, 2, 0.533);
+    background-color: rgba(176, 121, 4, 0.637);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,10 +61,11 @@ body {
           width: 5%;
           height: 10%;
           transition: right 0.3s ease;
-          background-color: $watchColor;
+
           border-radius: 5px;
           cursor: pointer;
           border: none;
+          outline: none;
           right: 2.5%;
         }
         .squareTop {
@@ -84,7 +85,6 @@ body {
           );
           &:active {
             right: -1px;
-            outline: none;
           }
         }
         .squareBottom {
@@ -92,6 +92,7 @@ body {
         }
         .squareBottom,
         .squareTop {
+          background-color: $watchColor;
           &:active {
             right: 3%;
             outline: none;
