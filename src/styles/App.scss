@@ -2,6 +2,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap");
 
+/* Nachtmodus */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -284,13 +291,6 @@ body {
         top: 28%;
         left: calc(50% - 2rem);
       }
-    }
-  }
-  /* Nachtmodus */
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: gray;
-      color: white;
     }
   }
 }
