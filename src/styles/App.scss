@@ -17,7 +17,7 @@ body {
   font-family: "Permanent Marker", cursive;
   padding: 0 1rem;
   .watchPage {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba($watchColor, 0.9);
     border-radius: 15%;
     width: 85vw;
     height: 90vw;
@@ -31,15 +31,15 @@ body {
     .watchGround {
       background: repeating-linear-gradient(
           45deg,
-          rgb(0, 0, 0),
-          rgb(0, 0, 0),
-          transparent 2%
+          $watchColor,
+          $watchColor,
+          transparent 1%
         ),
         repeating-linear-gradient(
           135deg,
-          rgb(0, 0, 0),
+          $watchColor,
           rgb(28, 28, 29),
-          transparent 2%
+          transparent 1%
         );
       width: 95vw;
       height: 95vw;
@@ -53,14 +53,11 @@ body {
         width: 5%;
         height: 10%;
         transition: right 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba($watchColor, 0.9);
         border-radius: 5px;
         cursor: pointer;
         border: none;
         right: 2.5%;
-        &:focus {
-          outline: none;
-        }
       }
       .squareTop {
         top: 12%;
@@ -72,9 +69,10 @@ body {
         right: -1%;
         cursor: pointer;
         position: absolute;
-        background: linear-gradient(to right, transparent 50%, black 50%);
+        background: linear-gradient(to right, transparent 50%, $watchColor 50%);
         &:active {
           right: -1px;
+          outline: none;
         }
       }
       .squareBottom {
@@ -84,6 +82,7 @@ body {
       .squareTop {
         &:active {
           right: 3%;
+          outline: none;
         }
       }
     }
