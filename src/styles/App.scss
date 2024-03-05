@@ -15,7 +15,7 @@ body {
   justify-content: center;
   height: 100vh;
   font-family: "Permanent Marker", cursive;
-
+  padding: 0 1rem;
   .watchPage {
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 15%;
@@ -282,6 +282,13 @@ body {
         top: 28%;
         left: calc(50% - 2rem);
       }
+    }
+  }
+  /* Nachtmodus */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: gray;
+      color: white;
     }
   }
 }
