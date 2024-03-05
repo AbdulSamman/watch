@@ -1,6 +1,7 @@
 @use "variables" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
 
 * {
   padding: 0;
@@ -9,12 +10,13 @@
 }
 body {
   background-color: #333;
-  font-family: sans-serif;
+  font-family: "Kode Mono", monospace, sans-serif;
+
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  font-family: "Permanent Marker", cursive;
+
   padding: 0 1rem;
 
   .watchPage {
@@ -272,7 +274,7 @@ body {
       .marke {
         color: rgba($borderColor, 0.4);
         text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-
+        font-family: "Permanent Marker", cursive;
         span {
           color: rgba(black, 0.9);
 
