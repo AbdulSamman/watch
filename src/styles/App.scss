@@ -58,6 +58,9 @@ body {
         cursor: pointer;
         border: none;
         right: 2.5%;
+        &:focus {
+          outline: none;
+        }
       }
       .squareTop {
         top: 12%;
