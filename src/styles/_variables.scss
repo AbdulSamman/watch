@@ -16,3 +16,11 @@ $backgroundColor: #170b01f5;
     box-shadow: $borderColor -1px 1px 1px 0px;
   }
 }
+
+/* Nachtmodus */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: gray;
+    color: white;
+  }
+}
