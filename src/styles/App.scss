@@ -2,8 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap");
 
-/* Nachtmodus */
-
 * {
   padding: 0;
   margin: 0;
@@ -19,272 +17,285 @@ body {
   font-family: "Permanent Marker", cursive;
   padding: 0 1rem;
   .watchPage {
-    background-color: $watchColor;
-    border-radius: 15%;
-    width: 85vw;
-    height: 90vw;
-    position: relative;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(88, 61, 2, 0.533);
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 460px;
-    max-height: 460px;
-
-    .watchGround {
-      background: repeating-linear-gradient(
-          45deg,
-          $watchColor,
-          $watchColor,
-          transparent 1%
-        ),
-        repeating-linear-gradient(
-          135deg,
-          $watchColor,
-          rgb(28, 28, 29),
-          transparent 1%
-        );
-      width: 95vw;
-      height: 95vw;
-      max-width: 500px;
-      max-height: 500px;
-      position: absolute;
-      border-radius: 50%;
-
-      .tasten {
-        position: absolute;
-        width: 5%;
-        height: 10%;
-        transition: right 0.3s ease;
-        background-color: rgba($watchColor, 0.9);
-        border-radius: 5px;
-        cursor: pointer;
-        border: none;
-        right: 2.5%;
-      }
-      .squareTop {
-        top: 12%;
-      }
-      .round {
-        top: 40%;
-        height: 20%;
-        border-radius: 40%;
-        right: -1%;
-        cursor: pointer;
-        position: absolute;
-        background: linear-gradient(to right, transparent 50%, $watchColor 50%);
-        &:active {
-          right: -1px;
-          outline: none;
-        }
-      }
-      .squareBottom {
-        top: 78%;
-      }
-      .squareBottom,
-      .squareTop {
-        &:active {
-          right: 3%;
-          outline: none;
-        }
-      }
-    }
-    .watch {
-      width: 80vw;
-      height: 80vw;
-      max-width: 400px;
-      max-height: 400px;
-      border-radius: 50%;
+    border-radius: 3%;
+    .watchLayers {
+      background-color: $watchColor;
+      border-radius: 15%;
+      width: 85vw;
+      height: 90vw;
       position: relative;
-      overflow: hidden;
-      background-color: rgba($backgroundColor, 0.7);
-      box-shadow: rgb(59, 61, 62) 3px 3px 6px 0px inset,
-        rgba(70, 66, 66, 0.5) -3px -3px 6px 1px inset;
-      .watchHand {
-        width: 100%;
-        height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 460px;
+      max-height: 460px;
+
+      .watchGround {
+        background: repeating-linear-gradient(
+            45deg,
+            $watchColor,
+            $watchColor,
+            transparent 1%
+          ),
+          repeating-linear-gradient(
+            135deg,
+            $watchColor,
+            rgb(28, 28, 29),
+            transparent 1%
+          );
+        width: 95vw;
+        height: 95vw;
+        max-width: 500px;
+        max-height: 500px;
         position: absolute;
-        transform-origin: center;
+        border-radius: 50%;
 
-        @mixin watchDesign($name, $bgColor, $width, $height, $zIndex) {
-          .#{$name} {
-            border-radius: 50%;
-            background-color: $bgColor;
-            width: $width;
-            height: $height;
-            position: absolute;
-            z-index: $zIndex;
-            border-top: 20px solid $borderColor;
-          }
-        }
-
-        $zeiger: hours black 10px 30% 2, minutes black 7px 42% 2,
-          seconds $borderColor 2px 55% 3,
-          secondsHandSmall $borderColor 1px 35% 0,
-          minutsHandSmall $borderColor 1px 35% 0,
-          stopWatchHand $borderColor 1px 40% 0;
-
-        @each $name, $bgColor, $width, $height, $zIndex in $zeiger {
-          @include watchDesign($name, $bgColor, $width, $height, $zIndex);
-        }
-
-        .hours {
-          left: calc(50% - 3px);
-          top: 25%;
-          transform-origin: center 80%;
-        }
-
-        .minutes {
-          left: calc(50% - 3.5px);
-          top: 16%;
-          transform-origin: center 80%;
-        }
-        .seconds {
-          left: calc(50% - 1px);
-          top: 9%;
-          transform-origin: center 75%;
-          border-top: none;
-        }
-
-        .kreis,
-        .kreisSmall {
-          width: 8px;
-          height: 8px;
-          background-color: rgb(242, 242, 55);
-          border-radius: 100%;
+        .tasten {
           position: absolute;
-          left: calc(50% - 4px);
-          top: calc(50% - 4px);
-          z-index: 4;
+          width: 5%;
+          height: 10%;
+          transition: right 0.3s ease;
+          background-color: $watchColor;
+          border-radius: 5px;
+          cursor: pointer;
+          border: none;
+          right: 2.5%;
         }
-        .days {
-          width: 28px;
-          height: 28px;
-          font-size: 20px;
+        .squareTop {
+          top: 12%;
+        }
+        .round {
+          top: 40%;
+          height: 20%;
+          border-radius: 40%;
+          right: -1%;
+          cursor: pointer;
           position: absolute;
-          right: 20%;
-          top: 70%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 100%;
-          z-index: 1;
-          animation: boxShadow 10s infinite linear;
-          border: 1px solid darken($borderColor, 50%);
-          color: #333;
+          background: linear-gradient(
+            to right,
+            transparent 50%,
+            $watchColor 50%
+          );
+          &:active {
+            right: -1px;
+            outline: none;
+          }
         }
-
-        .secondsMark {
-          .secondMark {
-            border-left: 0.7px solid gray;
-            height: 3%;
-            position: absolute;
-            left: calc(50% - 0.7px);
-            top: 2px;
-            transform-origin: 50% 1650%;
-            &-0,
-            &-5,
-            &-10,
-            &-15,
-            &-20,
-            &-25,
-            &-30,
-            &-35,
-            &-40,
-            &-45,
-            &-50,
-            &-55 {
-              transform-origin: 50% 620%;
-              height: 8%;
-              border-left: 2px solid $borderColor;
-            }
-          }
-          .taktLighten {
-            border-color: lighten(gold, 40%);
-          }
-          .dials {
-            position: absolute;
-            width: 26%;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            top: 37%;
-            border: 1px solid darken($borderColor, 58px);
-          }
-
-          .numbersSmall {
-            border-left: 1px solid darken($borderColor, 48px);
-            position: absolute;
-            left: 50%;
-            top: 2.5px;
-            height: 10%;
-            transform-origin: 50% 470%;
-          }
-
-          .numbers {
-            height: 50%;
-            position: absolute;
-            left: 44%;
-            top: 5%;
-            transform-origin: 50% 90%;
-            color: darken($borderColor, 40%);
-            font-size: 12px;
-          }
-          .secondsShow {
-            right: 12%;
-            .secondsHandSmall {
-              left: 50%;
-              top: 25%;
-            }
-          }
-          .minutsShow {
-            left: 12%;
-            .minutsHandSmall {
-              left: 50%;
-              top: 25%;
-            }
-          }
-
-          .stopWatch {
-            left: 34%;
-            top: 58%;
-            width: 32%;
-
-            .stopWatchHand {
-              left: 50%;
-              top: 22.5%;
-            }
-          }
-          .secondsHandSmall,
-          .minutsHandSmall,
-          .stopWatchHand {
-            transform-origin: center 70%;
-            background-color: darken($borderColor, 40%);
-            border: none;
-          }
-          .kreisSmall {
-            width: 5px;
-            height: 5px;
-            left: calc(50% - 2.5px);
-            top: calc(50% - 2.5px);
-            z-index: 1;
-            background-color: darken($borderColor, 40%);
+        .squareBottom {
+          top: 78%;
+        }
+        .squareBottom,
+        .squareTop {
+          &:active {
+            right: 3%;
+            outline: none;
           }
         }
       }
-      .marke {
-        color: rgba($borderColor, 0.4);
-        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+      .watch {
+        width: 80vw;
+        height: 80vw;
+        max-width: 400px;
+        max-height: 400px;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        background-color: rgba($backgroundColor, 0.7);
+        box-shadow: rgb(59, 61, 62) 3px 3px 6px 0px inset,
+          rgba(70, 66, 66, 0.5) -3px -3px 6px 1px inset;
+        .watchHand {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          transform-origin: center;
 
-        span {
-          color: rgba(black, 0.9);
+          @mixin watchDesign($name, $bgColor, $width, $height, $zIndex) {
+            .#{$name} {
+              border-radius: 50%;
+              background-color: $bgColor;
+              width: $width;
+              height: $height;
+              position: absolute;
+              z-index: $zIndex;
+              border-top: 20px solid $borderColor;
+            }
+          }
 
-          text-shadow: -1px 0 rgba($borderColor, 0.4),
-            0 1px rgba($borderColor, 0.4), 1px 0 rgba($borderColor, 0.4),
-            0 -1px rgba($borderColor, 0.4);
+          $zeiger: hours black 10px 30% 2, minutes black 7px 42% 2,
+            seconds $borderColor 2px 55% 3,
+            secondsHandSmall $borderColor 1px 35% 0,
+            minutsHandSmall $borderColor 1px 35% 0,
+            stopWatchHand $borderColor 1px 40% 0;
+
+          @each $name, $bgColor, $width, $height, $zIndex in $zeiger {
+            @include watchDesign($name, $bgColor, $width, $height, $zIndex);
+          }
+
+          .hours {
+            left: calc(50% - 3px);
+            top: 25%;
+            transform-origin: center 80%;
+          }
+
+          .minutes {
+            left: calc(50% - 3.5px);
+            top: 16%;
+            transform-origin: center 80%;
+          }
+          .seconds {
+            left: calc(50% - 1px);
+            top: 9%;
+            transform-origin: center 75%;
+            border-top: none;
+          }
+
+          .kreis,
+          .kreisSmall {
+            width: 8px;
+            height: 8px;
+            background-color: rgb(242, 242, 55);
+            border-radius: 100%;
+            position: absolute;
+            left: calc(50% - 4px);
+            top: calc(50% - 4px);
+            z-index: 4;
+          }
+          .days {
+            width: 28px;
+            height: 28px;
+            font-size: 20px;
+            position: absolute;
+            right: 20%;
+            top: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            z-index: 1;
+            animation: boxShadow 10s infinite linear;
+            border: 1px solid darken($borderColor, 50%);
+            color: #333;
+          }
+
+          .secondsMark {
+            .secondMark {
+              border-left: 0.7px solid gray;
+              height: 3%;
+              position: absolute;
+              left: calc(50% - 0.7px);
+              top: 2px;
+              transform-origin: 50% 1650%;
+              &-0,
+              &-5,
+              &-10,
+              &-15,
+              &-20,
+              &-25,
+              &-30,
+              &-35,
+              &-40,
+              &-45,
+              &-50,
+              &-55 {
+                transform-origin: 50% 620%;
+                height: 8%;
+                border-left: 2px solid $borderColor;
+              }
+            }
+            .taktLighten {
+              border-color: lighten(gold, 40%);
+            }
+            .dials {
+              position: absolute;
+              width: 26%;
+              aspect-ratio: 1;
+              border-radius: 50%;
+              top: 37%;
+              border: 1px solid darken($borderColor, 58px);
+            }
+
+            .numbersSmall {
+              border-left: 1px solid darken($borderColor, 48px);
+              position: absolute;
+              left: 50%;
+              top: 2.5px;
+              height: 10%;
+              transform-origin: 50% 470%;
+            }
+
+            .numbers {
+              height: 50%;
+              position: absolute;
+              left: 44%;
+              top: 5%;
+              transform-origin: 50% 90%;
+              color: darken($borderColor, 40%);
+              font-size: 12px;
+            }
+            .secondsShow {
+              right: 12%;
+              .secondsHandSmall {
+                left: 50%;
+                top: 25%;
+              }
+            }
+            .minutsShow {
+              left: 12%;
+              .minutsHandSmall {
+                left: 50%;
+                top: 25%;
+              }
+            }
+
+            .stopWatch {
+              left: 34%;
+              top: 58%;
+              width: 32%;
+
+              .stopWatchHand {
+                left: 50%;
+                top: 22.5%;
+              }
+            }
+            .secondsHandSmall,
+            .minutsHandSmall,
+            .stopWatchHand {
+              transform-origin: center 70%;
+              background-color: darken($borderColor, 40%);
+              border: none;
+            }
+            .kreisSmall {
+              width: 5px;
+              height: 5px;
+              left: calc(50% - 2.5px);
+              top: calc(50% - 2.5px);
+              z-index: 1;
+              background-color: darken($borderColor, 40%);
+            }
+          }
         }
-        font-size: 1rem;
-        position: absolute;
-        top: 28%;
-        left: calc(50% - 2rem);
+        .marke {
+          color: rgba($borderColor, 0.4);
+          text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
+          span {
+            color: rgba(black, 0.9);
+
+            text-shadow: -1px 0 rgba($borderColor, 0.4),
+              0 1px rgba($borderColor, 0.4), 1px 0 rgba($borderColor, 0.4),
+              0 -1px rgba($borderColor, 0.4);
+          }
+          font-size: 1rem;
+          position: absolute;
+          top: 28%;
+          left: calc(50% - 2rem);
+        }
       }
     }
   }

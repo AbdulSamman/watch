@@ -1,6 +1,6 @@
 $borderColor: rgba(236, 208, 97, 0.568);
 $backgroundColor: #170b01f5;
-$watchColor: rgb(2, 2, 2);
+$watchColor: rgb(10, 10, 10);
 @keyframes boxShadow {
   0%,
   100% {
@@ -14,11 +14,5 @@ $watchColor: rgb(2, 2, 2);
   }
   75% {
     box-shadow: $borderColor -1px 1px 1px 0px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #444;
   }
 }
